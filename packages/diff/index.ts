@@ -1,45 +1,52 @@
 interface Diff<T = any> {
     type: 'ADD' | 'REMOVE' | 'CHANGE';
     path: (string | number)[];
-    from?: T;
-    to?: T;
+    old?: T;
+    new?: T;
 }
 
-const diff = <T>(obj1: T, obj2: Partial<T>, parent: (string | number)[] = [], result: Diff[] = []) => {
-    for (const key in obj1) {
-        const v1 = obj1[key];
-        const path = parent.concat(key);
-        if (!(key in obj2)) {
-            result.push({
-                type: 'REMOVE',
-                path,
-                from: v1
-            });
-            continue;
-        }
-        const v2 = obj2[key];
-        if (typeof v1 !== 'object') {
-            if (v1 !== v2) {
+const diff = <T = any, TObj = Record<string, T>>(oldObj: TObj, newObj: TObj) => {
+    const result: Diff[] = [];
+
+    const _diff = (oldObj: TObj, newObj: TObj, parent: (string | number)[]) => {
+        for (const key in newObj) {
+            if (!(key in oldObj)) {
                 result.push({
-                    type: 'CHANGE',
-                    path,
-                    from: v1,
-                    to: v2
+                    type: 'ADD',
+                    path: parent.concat(key),
+                    new: newObj[key]
                 });
             }
-            continue;
         }
-        diff(v1, obj2[key] as Partial<typeof v1>, path, result);
-    }
-    for (const key in obj2) {
-        if (!(key in obj1)) {
-            result.push({
-                type: 'ADD',
-                path: parent.concat(key),
-                to: obj2[key]
-            });
+        for (const key in oldObj) {
+            const oldV = oldObj[key];
+            const path = parent.concat(key);
+            if (!(key in newObj)) {
+                result.push({
+                    type: 'REMOVE',
+                    path,
+                    old: oldV
+                });
+                continue;
+            }
+            const newV = newObj[key];
+            if (typeof oldV !== 'object') {
+                if (oldV !== newV) {
+                    result.push({
+                        type: 'CHANGE',
+                        path,
+                        old: oldV,
+                        new: newV
+                    });
+                }
+                continue;
+            }
+            _diff(oldV as unknown as TObj, newV as unknown as TObj, path);
         }
-    }
+    };
+
+    _diff(oldObj, newObj, []);
+
     return result;
 };
 

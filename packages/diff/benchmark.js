@@ -4,14 +4,14 @@ import { diffJson } from 'diff';
 import microdiff from 'microdiff';
 import { hrtime } from 'node:process';
 import colors from 'picocolors';
-import zdiff from './index';
+import zdiff from './dist/index.js';
 const characters = 'abcdefghijklmnopqrstuvwxyz1234567890'.split('');
 
 async function benchmark(name, obj, newObj, exclude = []) {
     const benchmarks = {
-        'deep-diff': () => deepDiff.diff(obj, newObj),
-        'deep-object-diff': () => deepObjectDiff.detailedDiff(obj, newObj),
-        jsdiff: () => diffJson(obj, newObj),
+        // 'deep-diff': () => deepDiff.diff(obj, newObj),
+        // 'deep-object-diff': () => deepObjectDiff.detailedDiff(obj, newObj),
+        // jsdiff: () => diffJson(obj, newObj),
         microdiff: () => microdiff(obj, newObj),
         zdiff: () => zdiff(obj, newObj)
     };
@@ -58,6 +58,7 @@ benchmark(
         propertyThree: 'Still testing...'
     }
 );
+
 let largeObj = {};
 let i = 0;
 while (i < 300) {
@@ -79,3 +80,21 @@ for (let randomProperty in largeObj) {
     }
 }
 benchmark('Large Object (300 properties)', largeObj, newLargeObj);
+
+const generateBigObject = (count, depth) => {
+    const obj = {};
+    new Array(count).fill(null).map((v, i) => {
+        const key = `key-${i}`;
+        if (depth) {
+            obj[key] = generateBigObject(count, depth - 1);
+        } else {
+            obj[key] = Math.random();
+        }
+    });
+    return obj;
+};
+
+const bigObj = generateBigObject(10, 2);
+const newBigObj = generateBigObject(10, 2);
+
+benchmark('Large Object (300 properties)', bigObj, newBigObj);

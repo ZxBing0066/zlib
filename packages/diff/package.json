@@ -1,14 +1,16 @@
 {
   "name": "@zlib/diff",
   "version": "0.0.1",
-  "description": "A fast and small diff libary for js/json data",
-  "main": "index.js",
+  "description": "A fast and small diff library for js/json data",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "pnpx ava",
+    "build": "pnpx tsc"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/ZxBing0066/zlib.git"
+    "url": "git+ssh://git@github.com/ZxBing0066/zlib.git",
+    "directory": "packages/diff"
   },
   "keywords": [
     "diff"
@@ -18,8 +20,9 @@
   "bugs": {
     "url": "https://github.com/ZxBing0066/zlib/issues"
   },
-  "homepage": "https://github.com/ZxBing0066/zlib#readme",
+  "homepage": "https://github.com/ZxBing0066/zlib/packages/diff#readme",
   "devDependencies": {
+    "benny": "^3.7.1",
     "deep-diff": "^1.0.2",
     "deep-object-diff": "^1.1.0",
     "diff": "^5.0.0",
