@@ -2,16 +2,19 @@
   "name": "@zlib/diff",
   "version": "0.0.1",
   "description": "A fast and small diff library for js/json data",
-  "main": "esm/index.js",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "types": "./types/index.d.ts",
   "scripts": {
     "test": "pnpx ava",
     "build": "pnpx tsc && pnpx tsc -p ./tsconfig.esm.json"
   },
   "files": [
     "cjs",
-    "esm"
+    "esm",
+    "types"
   ],
-  "types": "",
+  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/ZxBing0066/zlib.git",
