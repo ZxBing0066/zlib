@@ -5,22 +5,47 @@ interface Diff<T = any> {
     new?: T;
 }
 
-const diff = <T = any, TObj = Record<string, T>>(oldObj: TObj, newObj: TObj) => {
-    const result: Diff[] = [];
+const needDig = (obj: any) => {
+    if (typeof obj === 'object') {
+        const cname = Object.getPrototypeOf(obj).constructor.name;
+        if (cname === 'Object' || cname === 'Array') return cname;
+    }
+};
 
-    const _diff = (oldObj: TObj, newObj: TObj, parent: (string | number)[]) => {
-        for (const key in newObj) {
-            if (!(key in oldObj)) {
+const diff = <T = any, TObj = Record<string, T> | T[]>(oldObj: TObj, newObj: TObj) => {
+    // const oldT = needDig(oldObj),
+    //     newT = needDig(newObj);
+    // if (!oldT || !newT) throw new Error('Only support array/object diff');
+    // if (oldT !== newT) throw new Error("Can't diff object with array");
+
+    const result: Diff[] = [];
+    const _diff = (oldObj: TObj, newObj: TObj, isArray: boolean) => {
+        if (isArray) {
+            const oldL = (oldObj as unknown as any[]).length,
+                newL = (newObj as unknown as any[]).length;
+            for (let i = oldL; i < newL; i++) {
                 result.push({
                     type: 'ADD',
-                    path: parent.concat(key),
-                    new: newObj[key]
+                    path: [i],
+                    new: newObj[i]
                 });
             }
+        } else {
+            for (const key in newObj) {
+                if (!(key in oldObj)) {
+                    result.push({
+                        type: 'ADD',
+                        path: [key],
+                        new: newObj[key]
+                    });
+                }
+            }
         }
-        for (const key in oldObj) {
+
+        for (let key in oldObj) {
+            isArray && ((key as string | number) = +key);
             const oldV = oldObj[key];
-            const path = parent.concat(key);
+            const path = [key];
             if (!(key in newObj)) {
                 result.push({
                     type: 'REMOVE',
@@ -30,7 +55,8 @@ const diff = <T = any, TObj = Record<string, T>>(oldObj: TObj, newObj: TObj) => 
                 continue;
             }
             const newV = newObj[key];
-            if (typeof oldV !== 'object') {
+            const t = needDig(oldV);
+            if (!t || t !== needDig(newV)) {
                 if (oldV !== newV) {
                     result.push({
                         type: 'CHANGE',
@@ -41,12 +67,16 @@ const diff = <T = any, TObj = Record<string, T>>(oldObj: TObj, newObj: TObj) => 
                 }
                 continue;
             }
-            _diff(oldV as unknown as TObj, newV as unknown as TObj, path);
+            let i = result.length;
+            _diff(oldV as unknown as TObj, newV as unknown as TObj, t === 'Array');
+            const j = result.length;
+            for (; i < j; i++) {
+                result[i].path.unshift(key);
+            }
         }
     };
 
-    _diff(oldObj, newObj, []);
-
+    _diff(oldObj, newObj, Array.isArray(oldObj));
     return result;
 };
 

@@ -1,0 +1,35 @@
+import test from 'ava';
+
+import zdiff from '../esm/index.js';
+
+test('diff array with object', t => {
+    try {
+        zdiff({}, []);
+        t.fail('fail with difference type');
+    } catch (error) {
+        t.is(error.message, "Can't diff object with array");
+    }
+    try {
+        zdiff([], {});
+        t.fail('fail with difference type');
+    } catch (error) {
+        t.is(error.message, "Can't diff object with array");
+    }
+});
+
+test('unsupported type', t => {
+    ['', /x/, 1, new Date()].forEach(d => {
+        try {
+            zdiff(d, {});
+            t.fail(`fail with value ${d}`);
+        } catch (error) {
+            t.is(error.message, 'Only support array/object diff');
+        }
+        try {
+            zdiff({}, d);
+            t.fail(`fail with value ${d}`);
+        } catch (error) {
+            t.is(error.message, 'Only support array/object diff');
+        }
+    });
+});

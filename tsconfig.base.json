@@ -1,18 +1,17 @@
 {
     "compilerOptions": {
-        "outDir": "./dist/",
         "sourceMap": true,
         "noImplicitAny": true,
-        "module": "es6",
-        "allowJs": true,
-        "target": "es6",
-        "listFiles": true,
+        "module": "commonjs",
+        "target": "es5",
+        "allowJs": false,
+        "listEmittedFiles": true,
         "charset": "utf-8",
         "strictNullChecks": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "suppressImplicitAnyIndexErrors": true
     },
-    "include": ["./"],
+    "include": [],
     "exclude": ["node_modules", "**/node_modules"]
 }

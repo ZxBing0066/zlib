@@ -1,100 +1,55 @@
+import b, { suite } from 'benny';
 import deepDiff from 'deep-diff';
 import deepObjectDiff from 'deep-object-diff';
 import { diffJson } from 'diff';
 import microdiff from 'microdiff';
-import { hrtime } from 'node:process';
-import colors from 'picocolors';
-import zdiff from './dist/index.js';
-const characters = 'abcdefghijklmnopqrstuvwxyz1234567890'.split('');
+import zdiff from './esm/index.js';
+import { oldSimpleObj, newSimpleObj, oldNestedObj, newNestedObj, oldDeepObj, newDeepObj } from './share/data-simple.js';
+import { oldBigObj, newBigObj, oldDeepBigObj, newDeepBigObj } from './share/data-complex.js';
 
-async function benchmark(name, obj, newObj, exclude = []) {
-    const benchmarks = {
-        // 'deep-diff': () => deepDiff.diff(obj, newObj),
-        // 'deep-object-diff': () => deepObjectDiff.detailedDiff(obj, newObj),
-        // jsdiff: () => diffJson(obj, newObj),
-        microdiff: () => microdiff(obj, newObj),
-        zdiff: () => zdiff(obj, newObj)
-    };
-    let times = {};
-    for (let benchmark in benchmarks) {
-        if (exclude.includes(benchmark)) {
-            continue;
-        }
-        times[benchmark] = [];
-        for (let i = 1; i < 10000; i++) {
-            let time = hrtime();
-            benchmarks[benchmark]();
-            times[benchmark].push(hrtime(time)[1]);
-        }
-        times[benchmark] = times[benchmark].reduce((pv, nv) => pv + nv) / times[benchmark].length;
-    }
-    let output = [];
-    let fastest = '';
-    for (let time in times) {
-        if (!fastest || times[time] < times[fastest]) {
-            fastest = time;
-        }
-    }
-    for (let time in times) {
-        output.push(
-            `${time}: ${Math.round(times[time])}ns - ${
-                fastest === time
-                    ? colors.bold(colors.green('Fastest'))
-                    : `${Math.round((times[time] / times[fastest] - 1) * 100)}% slower`
-            }`
-        );
-    }
-    console.log(colors.bold(colors.green(`Benchmarks: ${name}\n`)) + output.join('\n'));
-}
+const bmList = [
+    { name: 'diff', func: diffJson },
+    { name: 'deep-diff', func: deepDiff.diff },
+    { name: 'deep-object-diff', func: deepObjectDiff.detailedDiff },
+    { name: 'jsdiff', func: diffJson },
+    { name: 'microdiff', func: microdiff },
+    { name: 'microdiff-without-cyclesFix', func: (oldObj, newObj) => microdiff(oldObj, newObj, { cyclesFix: false }) },
+    { name: 'zdiff', func: zdiff }
+];
 
-benchmark(
-    'Small object (baseline)',
+const suiteList = [
+    { name: 'Small object', data: [oldSimpleObj, newSimpleObj] },
+    { name: 'Nested object', data: [oldNestedObj, newNestedObj] },
+    { name: 'Big object', data: [oldBigObj, newBigObj] },
+    { name: 'Deep nested object', data: [oldDeepObj, newDeepObj] },
+    { name: 'Deep big object with deep: 4 and property count: 10', data: [oldDeepBigObj, newDeepBigObj] },
     {
-        name: 'Testing',
-        propertyTwo: 'Still testing...'
+        name: 'Simple array',
+        data: [
+            [1, 2, 3, 4],
+            [11, 2, 3, 44, 5, 6]
+        ]
     },
     {
-        name: 'TestingChanged',
-        propertyThree: 'Still testing...'
+        name: 'Simple array: short new',
+        data: [
+            [1, 2, 3, 4, 5, 6],
+            [11, 2, 3, 44]
+        ]
     }
-);
+];
 
-let largeObj = {};
-let i = 0;
-while (i < 300) {
-    let randomString = '';
-    for (let characterCount = 0; characterCount < 5; characterCount++) {
-        randomString += characters[Math.round(Math.random() * characters.length)];
-    }
-    if (!largeObj[randomString]) {
-        largeObj[randomString] = Math.random() * 100;
-        i++;
-    }
-}
-let newLargeObj = {};
-for (let randomProperty in largeObj) {
-    if (Math.random() > 0.95) {
-        newLargeObj[randomProperty] = Math.random() * 100;
-    } else if (!Math.random() < 0.975) {
-        newLargeObj[randomProperty] = largeObj[randomProperty];
-    }
-}
-benchmark('Large Object (300 properties)', largeObj, newLargeObj);
+suiteList.forEach(suite => {
+    b.suite(
+        suite.name,
 
-const generateBigObject = (count, depth) => {
-    const obj = {};
-    new Array(count).fill(null).map((v, i) => {
-        const key = `key-${i}`;
-        if (depth) {
-            obj[key] = generateBigObject(count, depth - 1);
-        } else {
-            obj[key] = Math.random();
-        }
-    });
-    return obj;
-};
+        ...bmList.map(({ name, func }) =>
+            b.add(name, () => {
+                func(suite.data[0], suite.data[1]);
+            })
+        ),
 
-const bigObj = generateBigObject(10, 2);
-const newBigObj = generateBigObject(10, 2);
-
-benchmark('Large Object (300 properties)', bigObj, newBigObj);
+        b.cycle(),
+        b.complete()
+    );
+});
