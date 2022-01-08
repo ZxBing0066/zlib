@@ -1,6 +1,6 @@
 {
   "name": "@zlib/diff",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A fast and small diff library for js/json data",
   "main": "cjs/index.js",
   "module": "esm/index.js",
