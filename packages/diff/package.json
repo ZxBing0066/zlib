@@ -7,7 +7,8 @@
   "types": "./types/index.d.ts",
   "scripts": {
     "test": "pnpx ava",
-    "build": "pnpx tsc && pnpx tsc -p ./tsconfig.esm.json"
+    "build": "pnpx tsc && pnpx tsc -p ./tsconfig.esm.json",
+    "benchmark": "node benchmark.js"
   },
   "files": [
     "cjs",
