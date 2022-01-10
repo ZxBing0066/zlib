@@ -25,16 +25,16 @@
   },
   "keywords": [
     "diff",
+    "comparison",
     "javascript",
-    "typescript",
-    "comparison"
+    "typescript"
   ],
   "author": "ZxBing0066",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ZxBing0066/zlib/issues"
   },
-  "homepage": "https://github.com/ZxBing0066/zlib/packages/diff#readme",
+  "homepage": "https://github.com/ZxBing0066/zlib/tree/master/packages/diff#readme",
   "devDependencies": {
     "deep-diff": "^1.0.2",
     "deep-object-diff": "^1.1.0",

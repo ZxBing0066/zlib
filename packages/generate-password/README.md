@@ -16,6 +16,14 @@ Default run as chrome builtin password generator.
 
 </div>
 
+<hr/>
+
+<div align='right'>
+
+[English / [中文](README.zh-cn.md)]
+
+</div>
+
 ## ✨ Features
 
 -   🚀 Run fast
@@ -38,6 +46,7 @@ npm i @zlib/generate-password
 import generatePassword from '@zlib/generate-password';
 
 console.log(generatePassword());
+// yacpVZuF3TSQAjZn
 ```
 
 ### Passwords like

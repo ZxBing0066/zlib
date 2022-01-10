@@ -8,8 +8,7 @@
   "scripts": {
     "test": "pnpx ava",
     "test:coverage": "pnpx c8 ava",
-    "build": "pnpx tsc && pnpx rollup -c rollup.config.js",
-    "benchmark": "node benchmark.js"
+    "build": "pnpx tsc && pnpx rollup -c rollup.config.js"
   },
   "files": [
     "cjs",
@@ -26,6 +25,7 @@
   "keywords": [
     "password",
     "generator",
+    "generate",
     "javascript",
     "typescript"
   ],
@@ -34,6 +34,6 @@
   "bugs": {
     "url": "https://github.com/ZxBing0066/zlib/issues"
   },
-  "homepage": "https://github.com/ZxBing0066/zlib/packages/generate-password#readme",
+  "homepage": "https://github.com/ZxBing0066/zlib/tree/master/packages/generate-password#readme",
   "type": "module"
 }

@@ -16,7 +16,15 @@
 
 </div>
 
-## ✨ Features
+<hr/>
+
+<div align='right'>
+
+[[English](README.md) / 中文]
+
+</div>
+
+## ✨ 功能
 
 -   🚀 快速
 -   🛡 密码嫡超过 94 位，全面测试
@@ -118,9 +126,9 @@ const newPassword = generatePassword({
 
 ### 使用案例
 
--   custom password length
+-   定义密码长度
 
-with fixed length
+使用固定长度
 
 ```ts
 const newPassword = generatePassword({
@@ -129,7 +137,7 @@ const newPassword = generatePassword({
 // dJmFRniJ7gvWBq3vZp
 ```
 
-with length range
+使用长度范围
 
 ```ts
 const newPassword = generatePassword({
@@ -138,9 +146,9 @@ const newPassword = generatePassword({
 // EN3RBGJ3kG2A59SThy
 ```
 
--   custom symbols
+-   修改符号字符集
 
-with default symbols
+使用默认符号字符集
 
 ```ts
 const newPassword = generatePassword({
@@ -149,7 +157,7 @@ const newPassword = generatePassword({
 // MS2_!U9ni.4QHaMk
 ```
 
-with custom symbols
+自定义符号字符集
 
 ```ts
 const newPassword = generatePassword({
@@ -158,9 +166,9 @@ const newPassword = generatePassword({
 // q2V^ppADRVEC3BVb
 ```
 
--   custom lowerCaseChars/upperCaseChars/digits
+-   修改小写、大写、数字字符集
 
-null to disabled some chars
+使用 `null` 来禁用对应字符集
 
 ```ts
 const newPassword = generatePassword({
@@ -169,7 +177,7 @@ const newPassword = generatePassword({
 // fcQDHXaPWgsTtdUD
 ```
 
-custom chars
+自定义字符集
 
 ```ts
 const newPassword = generatePassword({
@@ -178,7 +186,7 @@ const newPassword = generatePassword({
 // aTZc9FC2T292Q24b
 ```
 
--   add custom chars
+-   添加自定义字符集
 
 ```ts
 const newPassword = generatePassword({

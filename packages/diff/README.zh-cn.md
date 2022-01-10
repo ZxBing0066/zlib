@@ -47,7 +47,7 @@ import diff from '@zlib/diff';
 console.log(diff({ foo: 'bar' }, { foo: 'bar', newKey: 'value' }));
 ```
 
-## 🪞 借口
+## 🪞 接口
 
 范型支持.
 
