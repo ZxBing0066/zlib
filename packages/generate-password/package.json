@@ -1,0 +1,39 @@
+{
+  "name": "@zlib/generate-password",
+  "version": "0.0.1",
+  "description": "A tiny, easy to use javascript password generator",
+  "main": "cjs/index.cjs",
+  "module": "esm/index.js",
+  "types": "./types/index.d.ts",
+  "scripts": {
+    "test": "pnpx ava",
+    "test:coverage": "pnpx c8 ava",
+    "build": "pnpx tsc && pnpx rollup -c rollup.config.js",
+    "benchmark": "node benchmark.js"
+  },
+  "files": [
+    "cjs",
+    "esm",
+    "umd",
+    "types"
+  ],
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ZxBing0066/zlib.git",
+    "directory": "packages/generate-password"
+  },
+  "keywords": [
+    "password",
+    "generator",
+    "javascript",
+    "typescript"
+  ],
+  "author": "ZxBing0066",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ZxBing0066/zlib/issues"
+  },
+  "homepage": "https://github.com/ZxBing0066/zlib/packages/generate-password#readme",
+  "type": "module"
+}
