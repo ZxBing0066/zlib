@@ -6,7 +6,6 @@ import { checkDefault } from './check.js';
 test('basic check for 100 times', t => {
     for (let i = 0; i < 100; i++) {
         const password = generatePassword();
-        console.log(password);
         t.is(checkDefault(password), true, password);
     }
     t.pass();
@@ -22,5 +21,6 @@ test('collision for 100000 times', t => {
             map[password] = 1;
         }
     }
+    t.is(Object.keys(map).length, 100000);
     t.pass();
 });

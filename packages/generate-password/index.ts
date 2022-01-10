@@ -10,9 +10,7 @@ const DefaultSymbols = '-_.:!';
 // sequences of '-' or '_' will change to long strokes in many fonts, that will make the password difficult to read
 const isDifficultToRead = (password: string) => {
     for (let i = 0; i < password.length - 1; i++) {
-        if (password[i] === password[i + 1] && (password[i] === '_' || password[i] === '-')) {
-            return true;
-        }
+        if (password[i] === password[i + 1] && (password[i] === '_' || password[i] === '-')) return true;
     }
     return false;
 };
