@@ -4,7 +4,7 @@
 
 <div align='right'>
 
-[English](README.md) / 中文
+[[English](README.md) / 中文]
 
 </div>
 
@@ -15,7 +15,7 @@
 ![mini zipped size](https://img.shields.io/bundlephobia/minzip/@zlib/diff)
 ![dependents](https://badgen.net/npm/dependents/@zlib/diff) ![coverage](https://badgen.net/badge/coverage/100%25/green)
 ![tree-shaking support](https://badgen.net/bundlephobia/tree-shaking/@zlib/diff)
-![npm version](https://badgen.net/npm/v/@zlib/diff)
+[![npm version](https://badgen.net/npm/v/@zlib/diff)](https://www.npmjs.com/package/@zlib/diff)
 
 </center>
 

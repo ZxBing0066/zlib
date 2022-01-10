@@ -5,7 +5,7 @@ A diff library for deep diff js/json object/array. With very fast diff speed (es
 
 <div align='right'>
 
-English / [中文](README.zh-cn.md)
+[English / [中文](README.zh-cn.md)]
 
 </div>
 
@@ -16,7 +16,7 @@ English / [中文](README.zh-cn.md)
 ![mini zipped size](https://img.shields.io/bundlephobia/minzip/@zlib/diff)
 ![dependents](https://badgen.net/npm/dependents/@zlib/diff) ![coverage](https://badgen.net/badge/coverage/100%25/green)
 ![tree-shaking support](https://badgen.net/bundlephobia/tree-shaking/@zlib/diff)
-![npm version](https://badgen.net/npm/v/@zlib/diff)
+[![npm version](https://badgen.net/npm/v/@zlib/diff)](https://www.npmjs.com/package/@zlib/diff)
 
 </center>
 
