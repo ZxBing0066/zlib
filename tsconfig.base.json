@@ -1,7 +1,8 @@
 {
     "compilerOptions": {
-        "sourceMap": true,
         "noImplicitAny": true,
+        "emitDeclarationOnly": true,
+        "declaration": true,
         "module": "commonjs",
         "target": "es5",
         "allowJs": false,

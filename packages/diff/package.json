@@ -8,7 +8,7 @@
   "scripts": {
     "test": "pnpx ava",
     "test:coverage": "pnpx c8 ava",
-    "build": "pnpx tsc && pnpx tsc -p ./tsconfig.esm.json",
+    "build": "pnpx tsc && pnpx rollup -c rollup.config.js",
     "benchmark": "node benchmark.js"
   },
   "files": [
