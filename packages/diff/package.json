@@ -24,7 +24,10 @@
     "directory": "packages/diff"
   },
   "keywords": [
-    "diff"
+    "diff",
+    "javascript",
+    "typescript",
+    "comparison"
   ],
   "author": "ZxBing0066",
   "license": "MIT",

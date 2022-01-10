@@ -17,7 +17,7 @@ export default {
         {
             file: 'umd/index.js',
             format: 'umd',
-            name: 'zdiff',
+            name: 'zDiff',
             sourcemap: true
         }
     ],

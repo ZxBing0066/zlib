@@ -1,14 +1,8 @@
+<div align='center'>
+
 # @ZLIB/DIFF
 
 一个速度非常快（尤其是数组比对速度）、尺寸小（<500b）、无依赖、支持 ts 的 js/json 的对象/数组 diff 库
-
-<div align='right'>
-
-[[English](README.md) / 中文]
-
-</div>
-
-<center>
 
 ![ts](https://badgen.net/badge/-/TypeScript/blue?icon=typescript&label)
 ![license](https://badgen.net/github/license/ZxBing0066/zlib)
@@ -17,7 +11,15 @@
 ![tree-shaking support](https://badgen.net/bundlephobia/tree-shaking/@zlib/diff)
 [![npm version](https://badgen.net/npm/v/@zlib/diff)](https://www.npmjs.com/package/@zlib/diff)
 
-</center>
+</div>
+
+<hr/>
+
+<div align='right'>
+
+[[English](README.md) / 中文]
+
+</div>
 
 ## ✨ 功能
 

@@ -1,15 +1,9 @@
+<div align='center'>
+
 # @ZLIB/DIFF
 
 A diff library for deep diff js/json object/array. With very fast diff speed (especially in array diff), tiny size (<
 500b), 0 dependents, typescript support.
-
-<div align='right'>
-
-[English / [中文](README.zh-cn.md)]
-
-</div>
-
-<center>
 
 ![ts](https://badgen.net/badge/-/TypeScript/blue?icon=typescript&label)
 ![license](https://badgen.net/github/license/ZxBing0066/zlib)
@@ -18,7 +12,15 @@ A diff library for deep diff js/json object/array. With very fast diff speed (es
 ![tree-shaking support](https://badgen.net/bundlephobia/tree-shaking/@zlib/diff)
 [![npm version](https://badgen.net/npm/v/@zlib/diff)](https://www.npmjs.com/package/@zlib/diff)
 
-</center>
+</div>
+
+<hr/>
+
+<div align='right'>
+
+[English / [中文](README.zh-cn.md)]
+
+</div>
 
 ## ✨ Features
 
