@@ -15,5 +15,6 @@
   },
   "workspaces": [
     "projects/*"
-  ]
+  ],
+  "type": "module"
 }
