@@ -2,7 +2,7 @@
   "name": "@zlib/diff",
   "version": "1.0.2",
   "description": "A fast and small diff library for js/json data",
-  "main": "cjs/index.js",
+  "main": "cjs/index.cjs",
   "module": "esm/index.js",
   "types": "./types/index.d.ts",
   "scripts": {
@@ -14,6 +14,7 @@
   "files": [
     "cjs",
     "esm",
+    "umd",
     "types"
   ],
   "sideEffects": false,
