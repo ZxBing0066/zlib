@@ -7,11 +7,13 @@ importers:
       ava: ^4.0.0
       benny: ^3.7.1
       c8: ^7.11.0
+      rollup: ^2.63.0
       typescript: ^4.5.4
     devDependencies:
       ava: 4.0.0
       benny: 3.7.1
       c8: 7.11.0
+      rollup: 2.63.0
       typescript: 4.5.4
 
   packages/diff:
@@ -1218,6 +1220,14 @@ packages:
     hasBin: true
     dependencies:
       glob: 7.2.0
+    dev: true
+
+  /rollup/2.63.0:
+    resolution: {integrity: sha512-nps0idjmD+NXl6OREfyYXMn/dar3WGcyKn+KBzPdaLecub3x/LrId0wUcthcr8oZUAcZAR8NKcfGGFlNgGL1kQ==}
+    engines: {node: '>=10.0.0'}
+    hasBin: true
+    optionalDependencies:
+      fsevents: 2.3.2
     dev: true
 
   /run-parallel/1.2.0:

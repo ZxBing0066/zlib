@@ -1,11 +1,10 @@
 # @ZLIB/DIFF
 
-A diff library for deep diff js/json object/array. With very fast diff speed (especially in array diff), tiny size (<
-500b), 0 dependents, typescript support.
+一个速度非常快（尤其是数组比对速度）、尺寸小（<500b）、无依赖、支持 ts 的 js/json 的对象/数组 diff 库
 
 <div align='right'>
 
-English / [中文](README.zh-cn.md)
+[English](README.md) / 中文
 
 </div>
 
@@ -20,25 +19,25 @@ English / [中文](README.zh-cn.md)
 
 </center>
 
-## ✨ Features
+## ✨ 功能
 
--   🚀 Faster then other object diff libs, and the amazing array diff speed
--   🛡 Build with typescript, fully support types
--   🌐 Support all special type object deep diff
--   📦 Lightweight and tree shaking support
--   🌎 Support web, Node and service worker
+-   🚀 有非常快的比对速度（尤其是数组数据）
+-   🛡 使用 ts 开发，完美支持类型
+-   🌐 支持所有类型的对象比对
+-   📦 轻量、无依赖、支持 tree-shaking
+-   🌎 支持 web、Node、service worker 等
 
-## 🎬 Quick start
+## 🎬 快速上手
 
-1. Install
+1. 安装
 
 ```sh
 npm i @zlib/diff
 ```
 
-2. Usage
+2. 使用
 
-Import the lib and call with your objects you want to do diff.
+import 后直接调用传入需要 diff 的数组
 
 ```js
 import diff from '@zlib/diff';
@@ -46,9 +45,9 @@ import diff from '@zlib/diff';
 console.log(diff({ foo: 'bar' }, { foo: 'bar', newKey: 'value' }));
 ```
 
-## 🪞 Interface
+## 🪞 借口
 
-Generic support.
+范型支持.
 
 ```ts
 interface Diff<T = any> {
@@ -60,9 +59,9 @@ interface Diff<T = any> {
 declare const diff: <T = any, TObj = Record<string, T> | T[]>(oldObj: TObj, newObj: TObj) => Diff<any>[];
 ```
 
-## 🚀 Benchmark
+## 🚀 性能基准测试
 
--   With small object
+-   小对象测试
 
 | "name"                        | "ops"   | "margin" | "percentSlower" |
 | ----------------------------- | ------- | -------- | --------------- |
@@ -74,7 +73,7 @@ declare const diff: <T = any, TObj = Record<string, T> | T[]>(oldObj: TObj, newO
 | "microdiff-without-cyclesFix" | 4382206 | 0.39     | 13.08           |
 | "zdiff"                       | 5041725 | 3.06     | 0               |
 
--   With big object
+-   大对象测试
 
 | "name"                        | "ops"     | "margin" | "percentSlower" |
 | ----------------------------- | --------- | -------- | --------------- |
@@ -86,7 +85,7 @@ declare const diff: <T = any, TObj = Record<string, T> | T[]>(oldObj: TObj, newO
 | "microdiff-without-cyclesFix" | 29038.595 | 0.35     | 12.68           |
 | "zdiff"                       | 33256.928 | 0.4      | 0               |
 
--   With big object(deep 4, property count 10)
+-   大的嵌套对象测试，4 层，每个节点 10 个属性
 
 | "name"                        | "ops"     | "margin" | "percentSlower" |
 | ----------------------------- | --------- | -------- | --------------- |
@@ -98,7 +97,7 @@ declare const diff: <T = any, TObj = Record<string, T> | T[]>(oldObj: TObj, newO
 | "microdiff-without-cyclesFix" | 1021.0441 | 0.33     | 12.66           |
 | "zdiff"                       | 1169.0366 | 0.33     | 0               |
 
--   With deeply nested object
+-   深层嵌套对象测试
 
 | "name"                        | "ops"  | "margin" | "percentSlower" |
 | ----------------------------- | ------ | -------- | --------------- |
@@ -110,7 +109,7 @@ declare const diff: <T = any, TObj = Record<string, T> | T[]>(oldObj: TObj, newO
 | "microdiff-without-cyclesFix" | 817169 | 0.47     | 14.21           |
 | "zdiff"                       | 952516 | 0.3      | 0               |
 
--   With simple array
+-   简单数组测试
 
 | "name"                        | "ops"   | "margin" | "percentSlower" |
 | ----------------------------- | ------- | -------- | --------------- |
@@ -122,7 +121,7 @@ declare const diff: <T = any, TObj = Record<string, T> | T[]>(oldObj: TObj, newO
 | "microdiff-without-cyclesFix" | 1585105 | 0.38     | 45.6            |
 | "zdiff"                       | 2913708 | 0.37     | 0               |
 
--   With simple array(place short array as newObject)
+-   简单数组测试（将短数组前置）
 
 | "name"                        | "ops"   | "margin" | "percentSlower" |
 | ----------------------------- | ------- | -------- | --------------- |
