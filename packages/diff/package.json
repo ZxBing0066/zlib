@@ -7,6 +7,7 @@
   "types": "./types/index.d.ts",
   "scripts": {
     "test": "pnpx ava",
+    "test:coverage": "pnpx c8 ava",
     "build": "pnpx tsc && pnpx tsc -p ./tsconfig.esm.json",
     "benchmark": "node benchmark.js"
   },

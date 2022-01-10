@@ -13,11 +13,6 @@ const needDig = (obj: any) => {
 };
 
 const diff = <T = any, TObj = Record<string, T> | T[]>(oldObj: TObj, newObj: TObj) => {
-    // const oldT = needDig(oldObj),
-    //     newT = needDig(newObj);
-    // if (!oldT || !newT) throw new Error('Only support array/object diff');
-    // if (oldT !== newT) throw new Error("Can't diff object with array");
-
     const result: Diff[] = [];
     const _diff = (oldObj: TObj, newObj: TObj, isArray: boolean) => {
         if (isArray) {

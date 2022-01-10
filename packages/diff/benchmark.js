@@ -1,4 +1,4 @@
-import b, { suite } from 'benny';
+import b from 'benny';
 import deepDiff from 'deep-diff';
 import deepObjectDiff from 'deep-object-diff';
 import { diffJson } from 'diff';
@@ -50,6 +50,14 @@ suiteList.forEach(suite => {
         ),
 
         b.cycle(),
-        b.complete()
+        b.complete(),
+        b.save({
+            file: suite.name,
+            format: 'csv'
+        }),
+        b.save({
+            file: suite.name,
+            format: 'chart.html'
+        })
     );
 });
