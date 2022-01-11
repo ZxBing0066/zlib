@@ -1,8 +1,8 @@
 <div align='center'>
 
-# @zlib/generate-password
+<img src='./logo.png' width='500px'/>
 
-A tiny, fast, custom password generate javascript implement.
+A tiny 📦 , fast 🚀 , customizable 🎨 password generator of javascript implement.
 
 Default run as chrome builtin password generator.
 

@@ -1,6 +1,6 @@
 <div align='center'>
 
-# @ZLIB/DIFF
+<img src='./logo.png' width='500px'/>
 
 一个速度非常快（尤其是数组比对速度）、尺寸小（<500b）、无依赖、支持 ts 的 js/json 的对象/数组 diff 库
 

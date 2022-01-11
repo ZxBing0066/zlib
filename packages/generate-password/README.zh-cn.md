@@ -1,6 +1,6 @@
 <div align='center'>
 
-# @zlib/generate-password
+<img src='./logo.png' width='500px'/>
 
 一个轻量、快速、可全面定制的 javascript 密码生成库。
 
