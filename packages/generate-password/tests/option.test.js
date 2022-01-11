@@ -1,7 +1,7 @@
 import test from 'ava';
 
 import generatePassword from '../esm/index.js';
-import { checkDefault, createCharCheck, multipleCheck } from './check.js';
+import { checkDefault, checkDefaultWithSymbol, createCharCheck, multipleCheck } from './check.js';
 
 test('option.length', t => {
     const passwords = new Array(10).fill(null).map(() =>
@@ -41,17 +41,17 @@ test('range length check', t => {
 test('option.symbol', t => {
     multipleCheck(
         password => {
-            t.is(/^[abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789]{16}$/.test(password), true, password);
+            t.is(checkDefaultWithSymbol(password), true);
         },
         {
-            symbols: false
+            symbols: true
         }
     );
 
     const customPassword = generatePassword({
         symbols: '@#$'
     });
-    t.is(/^[abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789@#$]{16}$/.test(customPassword), true);
+    t.is(/^[abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789@#$]{15}$/.test(customPassword), true);
     t.is(createCharCheck('@#$')(customPassword), true, customPassword);
 });
 
@@ -59,13 +59,13 @@ test('option.customChars', t => {
     const customPassword = generatePassword({
         customChars: '我是中国人'
     });
-    t.is(/^[abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789\-_.:!我是中国人]{16}$/.test(customPassword), true);
+    t.is(/^[abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789\-_.:!我是中国人]{15}$/.test(customPassword), true);
     t.is(createCharCheck('我是中国人')(customPassword), true, customPassword);
 });
 
 test('option.shuffleTimes', t => {
     const password = generatePassword({
-        shuffleTimes: 10
+        shuffleTimes: 3
     });
     t.is(checkDefault(password), true);
 });

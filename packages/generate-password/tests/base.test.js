@@ -7,20 +7,16 @@ test('basic check for 100 times', t => {
     for (let i = 0; i < 100; i++) {
         const password = generatePassword();
         t.is(checkDefault(password), true, password);
+        console.log(password);
     }
     t.pass();
 });
 
-test('collision for 100000 times', t => {
-    const map = {};
-    for (let i = 0; i < 100000; i++) {
-        const password = generatePassword();
-        if (password in map) {
-            t.fail('crash');
-        } else {
-            map[password] = 1;
-        }
+test('basic check for 100 times without shuffle', t => {
+    for (let i = 0; i < 100; i++) {
+        const password = generatePassword({ shuffleTimes: 0 });
+        t.is(checkDefault(password), true, password);
+        console.log(password);
     }
-    t.is(Object.keys(map).length, 100000);
     t.pass();
 });

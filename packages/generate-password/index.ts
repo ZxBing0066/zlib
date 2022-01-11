@@ -8,34 +8,25 @@ const DefaultDigits = '23456789';
 const DefaultSymbols = '-_.:!';
 
 // sequences of '-' or '_' will change to long strokes in many fonts, that will make the password difficult to read
-const isDifficultToRead = (password: string) => {
-    for (let i = 0; i < password.length - 1; i++) {
-        if (password[i] === password[i + 1] && (password[i] === '_' || password[i] === '-')) return true;
-    }
-    return false;
-};
+const isDifficultToRead = (password: string) => /[_]{2}|[\-]{2}/.test(password);
 
 const randomIndex = (max: number) => Math.floor(Math.random() * max);
 
 const randomPick = (collection: string | string[]) => collection[randomIndex(collection.length)];
 
-const shuffle = (passwordChars: string[], remainingTimes = 0) => {
-    const l = passwordChars.length;
-    let seed = '';
-    while (seed.length < l * 2) {
-        seed += (Math.random() + '').slice(2);
-    }
-    for (let i = 0; i < l; i += 2) {
-        const randomI = +(seed[i] + seed[i + 1]) % l;
+const shuffle = (passwordChars: string[], l = passwordChars.length, remainingTimes = 0) => {
+    const r = passwordChars.length;
+    for (let i = 0; i < l; i++) {
+        const randomI = randomIndex(r);
         const tmp = passwordChars[i];
         passwordChars[i] = passwordChars[randomI];
         passwordChars[randomI] = tmp;
     }
-    if (remainingTimes > 0) shuffle(passwordChars, remainingTimes - 1);
+    if (remainingTimes > 0) shuffle(passwordChars, l, remainingTimes - 1);
 };
 
 const passwordGenerate = ({
-    length: passwordLength = 16,
+    length: passwordLength = 15,
     symbols: Symbols,
     digits: Digits = DefaultDigits,
     lowerCaseChars: LowerCaseChars = DefaultLowerCaseChars,
@@ -60,10 +51,11 @@ const passwordGenerate = ({
 } = {}) => {
     if (Array.isArray(passwordLength)) {
         const [min, max] = passwordLength;
-        if (!min || !max || max < min) throw new Error(`Invalid password length: ${JSON.stringify(passwordLength)}`);
+        if (!min || !max || max < min || min < 5 || max > 99)
+            throw new Error(`Invalid passwordLength: ${JSON.stringify(passwordLength)}`);
         passwordLength = min + randomIndex(max - min + 1);
     }
-    if (passwordLength < 5 || passwordLength > 100) throw new Error(`Invalid passwordLength: ${passwordLength}`);
+    if (passwordLength < 5 || passwordLength > 99) throw new Error(`Invalid passwordLength: ${passwordLength}`);
 
     if (Symbols === true) Symbols = DefaultSymbols;
 
@@ -72,21 +64,26 @@ const passwordGenerate = ({
     [LowerCaseChars, UpperCaseChars, Digits, Symbols, CustomChars].forEach(
         collection => collection?.length && allCollections.push(collection)
     );
-
     if (!allCollections.length) throw new Error(`Invalid options without any char for generate password`);
-
-    allCollections.forEach(collection => passwordChars.push(randomPick(collection)));
+    const al = allCollections.length;
+    for (let i = 0; i < al; i++) {
+        passwordChars.push(randomPick(allCollections[i]));
+    }
 
     const restCount = passwordLength - passwordChars.length;
     const fullCollection = allCollections.join('');
     for (let i = 0; i < restCount; i++) {
         passwordChars.push(randomPick(fullCollection));
     }
+    shuffle(passwordChars, al);
 
+    if (shuffleTimes > 0) shuffle(passwordChars, passwordLength, shuffleTimes - 1);
+
+    const needCheckReadAbility = fullCollection.indexOf('_') >= 0 || fullCollection.indexOf('-') >= 0;
     let remainingAttempts = 5;
-    do {
-        shuffle(passwordChars, shuffleTimes - 1);
-    } while (isDifficultToRead(passwordChars.join('')) && remainingAttempts--);
+    while (needCheckReadAbility && isDifficultToRead(passwordChars.join('')) && remainingAttempts--) {
+        shuffle(passwordChars);
+    }
 
     return passwordChars.join('');
 };

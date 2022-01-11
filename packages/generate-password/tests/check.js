@@ -21,10 +21,10 @@ export const checkSymbol = createCharCheck(DefaultSymbols);
 
 export const checkDefaultWithSymbol = (() => {
     const regex = new RegExp(
-        `^[${DefaultLowerCaseChars}${DefaultUpperCaseChars}${DefaultDigits}${DefaultSymbols.replace('-', '\\-')}]{16}$`
+        `^[${DefaultLowerCaseChars}${DefaultUpperCaseChars}${DefaultDigits}${DefaultSymbols.replace('-', '\\-')}]{15}$`
     );
     return password =>
-        password.length === 16 &&
+        password.length === 15 &&
         checkLowerCaseChar(password) &&
         checkUpperCaseChar(password) &&
         checkDigit(password) &&
@@ -34,9 +34,9 @@ export const checkDefaultWithSymbol = (() => {
 })();
 
 export const checkDefault = (() => {
-    const regex = new RegExp(`^[${DefaultLowerCaseChars}${DefaultUpperCaseChars}${DefaultDigits}]{16}$`);
+    const regex = new RegExp(`^[${DefaultLowerCaseChars}${DefaultUpperCaseChars}${DefaultDigits}]{15}$`);
     return password =>
-        password.length === 16 &&
+        password.length === 15 &&
         checkLowerCaseChar(password) &&
         checkUpperCaseChar(password) &&
         checkDigit(password) &&

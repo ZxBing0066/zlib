@@ -26,9 +26,9 @@ Default run as chrome builtin password generator.
 
 ## ✨ Features
 
--   🚀 Run fast
--   🛡 Strong password have over 94 bits of entropy and fully tested
--   🎨 Fully customizable
+-   🚀 Run fast (~1m ops/s by default, ~1.3m ops/s without shuffle [MacBook Air (M1, 2020) 16G])
+-   🛡 Strong password have over 88 bits of entropy and fully tested
+-   🎨 Fully customizable and readability (no similar chars or sequences of -/\_)
 -   📦 Tiny and tree shaking support
 -   🌎 Support web, Node and service worker with esm, cjs amd umd
 
