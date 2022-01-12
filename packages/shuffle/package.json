@@ -1,0 +1,46 @@
+{
+  "name": "@zlib/shuffle",
+  "version": "0.0.1",
+  "description": "A tiny shuffle of javascript",
+  "main": "cjs/index.cjs",
+  "module": "esm/index.js",
+  "types": "./types/index.d.ts",
+  "jsdeliver": "umd/index.min.js",
+  "scripts": {
+    "test": "pnpx ava",
+    "test:coverage": "pnpx c8 ava",
+    "build": "pnpx tsc && pnpx rollup -c rollup.config.js",
+    "benchmark": "node benchmark.js"
+  },
+  "files": [
+    "cjs",
+    "esm",
+    "umd",
+    "types"
+  ],
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ZxBing0066/zlib.git",
+    "directory": "packages/shuffle"
+  },
+  "keywords": [
+    "array",
+    "string",
+    "shuffle",
+    "javascript",
+    "typescript"
+  ],
+  "author": "ZxBing0066",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ZxBing0066/zlib/issues"
+  },
+  "homepage": "https://github.com/ZxBing0066/zlib/tree/master/packages/shuffle#readme",
+  "type": "module",
+  "devDependencies": {
+    "array-shuffle": "^3.0.0",
+    "lodash": "^4.17.21",
+    "shuffle-array": "^1.0.1"
+  }
+}
