@@ -1,16 +1,18 @@
 <div align='center'>
 
-Collection of my libraries that are:
+![logo](logo.png)
 
-📦 lightweight
+Collection of libraries that are:
 
-😃 easy-to-use
+![tiny](https://badgen.net/badge/📦/tiny/blue) ![fast](https://badgen.net/badge/🚀/fast/blue)
+![easy-to-use](https://badgen.net/badge/😃/easy-to-use/blue) ![full-test](https://badgen.net/badge/🧐/full-test/blue)
 
-🎗 stable
-
-💪 robust
+![ts](https://badgen.net/badge/-/TypeScript/blue?icon=typescript&label)
+![license](https://badgen.net/github/license/ZxBing0066/zlib)
 
 </div>
+
+<hr/>
 
 # Library List
 
@@ -18,21 +20,36 @@ Collection of my libraries that are:
 
 ### Desc
 
-A diff library for deep diff js/json object/array. With very fast diff speed (especially in array diff), tiny size (<
-500b), 0 dependents, typescript support.
+A diff library for deep diff js/json object/array.
+
+With 🚀 very fast diff speed (especially in array diff), 📦 tiny size (< 500b), 0 dependents, typescript support.
 
 ### Keywords
 
 diff, comparison
 
+<hr/>
+
 ## [generate-password](packages/generate-password)
 
 ### Desc
 
-A tiny, fast, custom password generate javascript implement.
+A 📦 tiny, 🚀 fast, 🎨 customizable password generator of javascript implement.
 
 Default run as chrome builtin password generator.
 
 ### Keywords
 
-password, generate-password, password-generator, chrome
+password, generate, generator, chrome
+
+<hr/>
+
+## [shuffle](packages/shuffle)
+
+### Desc
+
+A 📦 tiny, 🚀 fast shuffle of javascript implement for array or string.
+
+### Keywords
+
+array, string, shuffle

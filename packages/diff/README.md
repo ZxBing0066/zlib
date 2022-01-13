@@ -2,8 +2,9 @@
 
 <img src='./logo.png' width='500px'/>
 
-A diff library for deep diff js/json object/array. With very fast diff speed (especially in array diff), tiny size (<
-500b), 0 dependents, typescript support.
+A diff library for deep diff js/json object/array.
+
+With 🚀 very fast diff speed (especially in array diff), 📦 tiny size (< 500b), 0 dependents, typescript support.
 
 ![ts](https://badgen.net/badge/-/TypeScript/blue?icon=typescript&label)
 ![license](https://badgen.net/github/license/ZxBing0066/zlib)
