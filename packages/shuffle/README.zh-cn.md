@@ -2,7 +2,7 @@
 
 <img src='./logo.png' width='500px'/>
 
-A tiny 📦 , fast 🚀 shuffle of javascript implement for array or string.
+一个轻量的可以随机打乱数组/字符串顺序的 lib。
 
 ![ts](https://badgen.net/badge/-/TypeScript/blue?icon=typescript&label)
 ![license](https://badgen.net/github/license/ZxBing0066/zlib)
@@ -22,23 +22,23 @@ A tiny 📦 , fast 🚀 shuffle of javascript implement for array or string.
 
 </div>
 
-## ✨ Features
+## ✨ 功能
 
--   🚀 Run fast (1.5m ops/s for array of length 50 and 500k ops/s for string of length 62)
--   🌕 Support array or string
--   🕺🏻 Stable even distribution
--   📦 Tiny and tree shaking support
--   🌎 Support web, Node and service worker with esm, cjs amd umd
+-   🚀 速度快
+-   🌕 支持数组或字符串
+-   🕺🏻 稳定的平均分布
+-   📦 轻量，支持 tree-shaking
+-   🌎 支持 esm、cjs、umd 引用，支持 web、nodejs、service-worker
 
-## 🎬 Quick Start
+## 🎬 快速上手
 
-### Install
+### 安装
 
 ```js
 npm i @zlib/shuffle
 ```
 
-### Usage
+### 使用
 
 ```ts
 import shuffle from '@zlib/shuffle';
@@ -47,13 +47,13 @@ console.log(shuffle(new Array(10).fill(null).map((v, i) => i)));
 // [5, 3, 0, 1, 6, 9, 2, 4, 8, 7]
 ```
 
-## 😼 Playground
+## 😼 尝试
 
 [![Edit @zlib/shuffle playground](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/zlib-shuffle-playground-kitsk?fontsize=14&hidenavigation=1&theme=dark)
 
-## 🎨 Options
+## 🎨 Option
 
-### Interface
+### 接口
 
 ```ts
 declare function shuffle(
@@ -72,23 +72,22 @@ declare function shuffle<T = any>(
 
 ### Option
 
-#### `fix` for string shuffle
+#### 关于字符串乱序的 `fix`
 
-For string shuffle, use `fix` to fix split for some special unicode char like `📦 🚀 `.
+String 的乱序会优先转换为数组再去操作，而遇到一些复杂的 unicode 字符如 `📦 🚀 ` 等会出现问题，可以使用 `fix` 来修复。
 
-But if your string have some more special char like `👩🏾‍🔧`, you should use some lib to transform the string to an array
-before shuffle.
+但如果字符串存在复杂的 emoji 如`👩🏾‍🔧`，则需要借助其它专业库来实现（如 `runes`），可参考
+[Playground](https://codesandbox.io/s/zlib-shuffle-playground-kitsk?file=/src/index.js)。
 
-#### `pure` for array shuffle
+#### 关于数组乱序的 `pure`
 
-By default, shuffle will clone an array for do shuffle, but if you wan't this, just set `pure` to `false`.
+默认情况下 shuffle 不会影响到原数组，如果需要直接在原数组上操作 shuffle，可以将 `pure` 设置为 `false`。
 
-## 📊 Distribution
+## 📊 排列分布图
 
-This is a chart about do shuffle 100000 times for an array from A ～ P (16 letters for better display). The x axis means
-the index of element in the array, the y axis means how much times the element appear to the index.
+下述图表为对一个 A-P 的数组进行 100000 次 shuffle 后的排列分布。x 轴为字母出现的索引位置，y 轴为出现的次数。
 
-All elements's appear count to each index are around 6250 (100000/16), which means they are even distribution.
+可以看到所有的字母在所有索引出现的次数都在 6250 (100000/16) 上下，可以看出分布均匀。
 
 [![Edit @zlib/shuffle - distribution chart](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/zlib-shuffle-distribution-chart-2j33q?fontsize=14&hidenavigation=1&theme=dark)
 
