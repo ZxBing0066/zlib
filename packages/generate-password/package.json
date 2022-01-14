@@ -1,10 +1,12 @@
 {
-  "name": "@zlib/generate-password",
-  "version": "1.0.1",
+  "name": "z-generate-password",
+  "version": "1.0.2",
   "description": "A tiny, easy to use javascript password generator",
   "main": "cjs/index.cjs",
   "module": "esm/index.js",
-  "types": "./types/index.d.ts",
+  "types": "types/index.d.ts",
+  "unpkg": "umd/index.min.js",
+  "jsdelivr": "umd/index.min.js",
   "scripts": {
     "test": "pnpx ava",
     "test:coverage": "pnpx c8 ava",

@@ -1,25 +1,3 @@
-import tsPlugin from '@rollup/plugin-typescript';
+import baseConfig from '../../rollup.config.base.js';
 
-export default {
-    input: './index.ts',
-    output: [
-        {
-            file: 'cjs/index.cjs',
-            format: 'cjs',
-            exports: 'default',
-            sourcemap: true
-        },
-        {
-            file: 'esm/index.js',
-            format: 'es',
-            sourcemap: true
-        },
-        {
-            file: 'umd/index.js',
-            format: 'umd',
-            name: 'zDiff',
-            sourcemap: true
-        }
-    ],
-    plugins: [tsPlugin()]
-};
+export default baseConfig('turboDiff');

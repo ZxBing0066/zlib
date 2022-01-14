@@ -8,11 +8,11 @@
 
 ![ts](https://badgen.net/badge/-/TypeScript/blue?icon=typescript&label)
 ![license](https://badgen.net/github/license/ZxBing0066/zlib)
-![mini zipped size](https://img.shields.io/bundlephobia/minzip/@zlib/generate-password)
-![dependents](https://badgen.net/npm/dependents/@zlib/generate-password)
+![mini zipped size](https://img.shields.io/bundlephobia/minzip/z-generate-password)
+![dependents](https://badgen.net/npm/dependents/z-generate-password)
 ![coverage](https://badgen.net/badge/coverage/100%25/green)
-![tree-shaking support](https://badgen.net/bundlephobia/tree-shaking/@zlib/generate-password)
-[![npm version](https://badgen.net/npm/v/@zlib/generate-password)](https://www.npmjs.com/package/@zlib/generate-password)
+![tree-shaking support](https://badgen.net/bundlephobia/tree-shaking/z-generate-password)
+[![npm version](https://badgen.net/npm/v/z-generate-password)](https://www.npmjs.com/package/z-generate-password)
 
 </div>
 
@@ -37,13 +37,13 @@
 ### 安装
 
 ```js
-npm i @zlib/generate-password
+npm i z-generate-password
 ```
 
 ### 使用
 
 ```ts
-import generatePassword from '@zlib/generate-password';
+import generatePassword from 'z-generate-password';
 
 console.log(generatePassword());
 // yacpVZuF3TSQAjZn

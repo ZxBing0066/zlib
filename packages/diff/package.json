@@ -4,7 +4,9 @@
   "description": "A fast and small diff library for js/json data",
   "main": "cjs/index.cjs",
   "module": "esm/index.js",
-  "types": "./types/index.d.ts",
+  "types": "types/index.d.ts",
+  "unpkg": "umd/index.min.js",
+  "jsdelivr": "umd/index.min.js",
   "scripts": {
     "test": "pnpx ava",
     "test:coverage": "pnpx c8 ava",

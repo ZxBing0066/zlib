@@ -11,11 +11,11 @@ const bmList = [
             passwordGenerator.generate({ length: 15, number: true, strict: true, excludeSimilarCharacters: true })
     },
     {
-        name: '@zlib/generate-password without shuffle',
+        name: 'z-generate-password without shuffle',
         func: () => zGeneratePassword({ shuffleTimes: 0 })
     },
     {
-        name: '@zlib/generate-password',
+        name: 'z-generate-password',
         func: zGeneratePassword
     }
 ];

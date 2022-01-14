@@ -30,7 +30,7 @@ diff, compare, comparison
 
 <hr/>
 
-## [generate-password](packages/generate-password)
+## [z-generate-password](packages/generate-password)
 
 ### Desc
 
