@@ -3,7 +3,7 @@ import deepDiff from 'deep-diff';
 import deepObjectDiff from 'deep-object-diff';
 import { diffJson } from 'diff';
 import microdiff from 'microdiff';
-import zdiff from './esm/index.js';
+import turboDiff from './esm/index.js';
 import { oldSimpleObj, newSimpleObj, oldNestedObj, newNestedObj, oldDeepObj, newDeepObj } from './share/data-simple.js';
 import { oldBigObj, newBigObj, oldDeepBigObj, newDeepBigObj } from './share/data-complex.js';
 
@@ -14,7 +14,7 @@ const bmList = [
     { name: 'jsdiff', func: diffJson },
     { name: 'microdiff', func: microdiff },
     { name: 'microdiff-without-cyclesFix', func: (oldObj, newObj) => microdiff(oldObj, newObj, { cyclesFix: false }) },
-    { name: 'zdiff', func: zdiff }
+    { name: 'turbo-diff', func: turboDiff }
 ];
 
 const suiteList = [

@@ -1,10 +1,10 @@
 import test from 'ava';
 
-import zdiff from '../esm/index.js';
+import diff from '../esm/index.js';
 import { oldNestedObj, newNestedObj, oldDeepObj, newDeepObj } from '../share/data-simple.js';
 
 test('nested diff', t => {
-    t.deepEqual(zdiff(oldNestedObj, newNestedObj), [
+    t.deepEqual(diff(oldNestedObj, newNestedObj), [
         {
             type: 'ADD',
             path: ['key', 'add'],
@@ -25,7 +25,7 @@ test('nested diff', t => {
 });
 
 test('deep diff', t => {
-    t.deepEqual(zdiff(oldDeepObj, newDeepObj), [
+    t.deepEqual(diff(oldDeepObj, newDeepObj), [
         {
             type: 'ADD',
             path: ['newKey'],
