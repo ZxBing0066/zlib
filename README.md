@@ -44,7 +44,7 @@ password, generate, generator, chrome
 
 <hr/>
 
-## [shuffle](packages/shuffle)
+## [z-shuffle](packages/shuffle)
 
 ### Desc
 

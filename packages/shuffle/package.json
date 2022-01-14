@@ -1,5 +1,5 @@
 {
-  "name": "@zlib/shuffle",
+  "name": "z-shuffle",
   "version": "1.0.1",
   "description": "A tiny shuffle for array/string of javascript",
   "main": "cjs/index.cjs",

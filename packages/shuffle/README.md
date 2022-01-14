@@ -6,11 +6,11 @@ A tiny 📦 , fast 🚀 shuffle of javascript implement for array or string.
 
 ![ts](https://badgen.net/badge/-/TypeScript/blue?icon=typescript&label)
 ![license](https://badgen.net/github/license/ZxBing0066/zlib)
-![mini zipped size](https://img.shields.io/bundlephobia/minzip/@zlib/shuffle)
-![dependents](https://badgen.net/npm/dependents/@zlib/shuffle)
+![mini zipped size](https://img.shields.io/bundlephobia/minzip/z-shuffle)
+![dependents](https://badgen.net/npm/dependents/z-shuffle)
 ![coverage](https://badgen.net/badge/coverage/100%25/green)
-![tree-shaking support](https://badgen.net/bundlephobia/tree-shaking/@zlib/shuffle)
-[![npm version](https://badgen.net/npm/v/@zlib/shuffle)](https://www.npmjs.com/package/@zlib/shuffle)
+![tree-shaking support](https://badgen.net/bundlephobia/tree-shaking/z-shuffle)
+[![npm version](https://badgen.net/npm/v/z-shuffle)](https://www.npmjs.com/package/z-shuffle)
 
 </div>
 
@@ -35,13 +35,13 @@ A tiny 📦 , fast 🚀 shuffle of javascript implement for array or string.
 ### Install
 
 ```js
-npm i @zlib/shuffle
+npm i z-shuffle
 ```
 
 ### Usage
 
 ```ts
-import shuffle from '@zlib/shuffle';
+import shuffle from 'z-shuffle';
 
 console.log(shuffle(new Array(10).fill(null).map((v, i) => i)));
 // [5, 3, 0, 1, 6, 9, 2, 4, 8, 7]
@@ -49,7 +49,7 @@ console.log(shuffle(new Array(10).fill(null).map((v, i) => i)));
 
 ## 😼 Playground
 
-[![Edit @zlib/shuffle playground](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/zlib-shuffle-playground-kitsk?fontsize=14&hidenavigation=1&theme=dark)
+[![Edit z-shuffle playground](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/zlib-shuffle-playground-kitsk?fontsize=14&hidenavigation=1&theme=dark)
 
 ## 🎨 Options
 
@@ -90,6 +90,6 @@ the index of element in the array, the y axis means how much times the element a
 
 All elements's appear count to each index are around 6250 (100000/16), which means they are even distribution.
 
-[![Edit @zlib/shuffle - distribution chart](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/zlib-shuffle-distribution-chart-2j33q?fontsize=14&hidenavigation=1&theme=dark)
+[![Edit z-shuffle - distribution chart](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/zlib-shuffle-distribution-chart-2j33q?fontsize=14&hidenavigation=1&theme=dark)
 
 ![distribution-chart](./shuffle-distribution-chart.png)
