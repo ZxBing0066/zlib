@@ -6,10 +6,10 @@
 
 ![ts](https://badgen.net/badge/-/TypeScript/blue?icon=typescript&label)
 ![license](https://badgen.net/github/license/ZxBing0066/zlib)
-![mini zipped size](https://img.shields.io/bundlephobia/minzip/@zlib/diff)
-![dependents](https://badgen.net/npm/dependents/@zlib/diff) ![coverage](https://badgen.net/badge/coverage/100%25/green)
-![tree-shaking support](https://badgen.net/bundlephobia/tree-shaking/@zlib/diff)
-[![npm version](https://badgen.net/npm/v/@zlib/diff)](https://www.npmjs.com/package/@zlib/diff)
+![mini zipped size](https://img.shields.io/bundlephobia/minzip/turbo-diff)
+![dependents](https://badgen.net/npm/dependents/turbo-diff) ![coverage](https://badgen.net/badge/coverage/100%25/green)
+![tree-shaking support](https://badgen.net/bundlephobia/tree-shaking/turbo-diff)
+[![npm version](https://badgen.net/npm/v/turbo-diff)](https://www.npmjs.com/package/turbo-diff)
 
 </div>
 
@@ -34,7 +34,7 @@
 1. 安装
 
 ```sh
-npm i @zlib/diff
+npm i turbo-diff
 ```
 
 2. 使用
@@ -42,7 +42,7 @@ npm i @zlib/diff
 import 后直接调用传入需要 diff 的数组
 
 ```js
-import diff from '@zlib/diff';
+import diff from 'turbo-diff';
 
 console.log(diff({ foo: 'bar' }, { foo: 'bar', newKey: 'value' }));
 ```
