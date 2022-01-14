@@ -16,7 +16,7 @@ Collection of libraries that are:
 
 # Library List
 
-## [diff](packages/diff)
+## [turbo-diff](packages/diff)
 
 ### Desc
 
@@ -26,7 +26,7 @@ With 🚀 very fast diff speed (especially in array diff), 📦 tiny size (< 500
 
 ### Keywords
 
-diff, comparison
+diff, compare, comparison
 
 <hr/>
 
