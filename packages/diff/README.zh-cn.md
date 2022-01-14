@@ -61,6 +61,10 @@ interface Diff<T = any> {
 declare const diff: <T = any, TObj = Record<string, T> | T[]>(oldObj: TObj, newObj: TObj) => Diff<any>[];
 ```
 
+## 😼 尝试
+
+[![Edit playground: turbo-diff](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/playground-turbo-diff-yeno0?fontsize=14&hidenavigation=1&theme=dark)
+
 ## 🚀 性能基准测试
 
 -   小对象测试
