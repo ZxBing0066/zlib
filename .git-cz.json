@@ -5,7 +5,7 @@
     "maxMessageLength": 64,
     "minMessageLength": 3,
     "questions": ["type", "scope", "subject", "body", "breaking", "issues", "lerna"],
-    "scopes": [],
+    "scopes": ["all", "root", "diff", "generate-password", "shuffle"],
     "types": {
         "feat": {
             "description": "A new feature",
