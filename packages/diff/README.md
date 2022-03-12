@@ -29,7 +29,7 @@ With 🚀 very fast diff speed (especially in array diff), 📦 tiny size (< 500
 -   🛡 Build with typescript, fully support types
 -   🌐 Support all special type object deep diff
 -   📦 Lightweight and tree shaking support
--   🌎 Support web, Node and service worker
+-   🌎 Support web, Node and workers
 
 ## 🎬 Quick start
 
@@ -79,7 +79,7 @@ declare const diff: <T = any, TObj = Record<string, T> | T[]>(oldObj: TObj, newO
 | "jsdiff"                      | 57685   | 0.36     | 98.86           |
 | "microdiff"                   | 4400020 | 0.4      | 12.73           |
 | "microdiff-without-cyclesFix" | 4382206 | 0.39     | 13.08           |
-| "turbo-diff"                       | 5041725 | 3.06     | 0               |
+| "turbo-diff"                  | 5041725 | 3.06     | 0               |
 
 -   With big object
 
@@ -91,7 +91,7 @@ declare const diff: <T = any, TObj = Record<string, T> | T[]>(oldObj: TObj, newO
 | "jsdiff"                      | 0.089     | 0.53     | 100             |
 | "microdiff"                   | 28992.708 | 0.51     | 12.82           |
 | "microdiff-without-cyclesFix" | 29038.595 | 0.35     | 12.68           |
-| "turbo-diff"                       | 33256.928 | 0.4      | 0               |
+| "turbo-diff"                  | 33256.928 | 0.4      | 0               |
 
 -   With big object(deep 4, property count 10)
 
@@ -103,7 +103,7 @@ declare const diff: <T = any, TObj = Record<string, T> | T[]>(oldObj: TObj, newO
 | "jsdiff"                      | 0.02      | 2.02     | 100             |
 | "microdiff"                   | 902.0445  | 0.38     | 22.84           |
 | "microdiff-without-cyclesFix" | 1021.0441 | 0.33     | 12.66           |
-| "turbo-diff"                       | 1169.0366 | 0.33     | 0               |
+| "turbo-diff"                  | 1169.0366 | 0.33     | 0               |
 
 -   With deeply nested object
 
@@ -115,7 +115,7 @@ declare const diff: <T = any, TObj = Record<string, T> | T[]>(oldObj: TObj, newO
 | "jsdiff"                      | 9050   | 0.32     | 99.05           |
 | "microdiff"                   | 644867 | 0.35     | 32.3            |
 | "microdiff-without-cyclesFix" | 817169 | 0.47     | 14.21           |
-| "turbo-diff"                       | 952516 | 0.3      | 0               |
+| "turbo-diff"                  | 952516 | 0.3      | 0               |
 
 -   With simple array
 
@@ -127,7 +127,7 @@ declare const diff: <T = any, TObj = Record<string, T> | T[]>(oldObj: TObj, newO
 | "jsdiff"                      | 38266   | 0.28     | 98.69           |
 | "microdiff"                   | 1610910 | 0.44     | 44.71           |
 | "microdiff-without-cyclesFix" | 1585105 | 0.38     | 45.6            |
-| "turbo-diff"                       | 2913708 | 0.37     | 0               |
+| "turbo-diff"                  | 2913708 | 0.37     | 0               |
 
 -   With simple array(place short array as newObject)
 
@@ -139,4 +139,4 @@ declare const diff: <T = any, TObj = Record<string, T> | T[]>(oldObj: TObj, newO
 | "jsdiff"                      | 39385   | 0.93     | 98.51           |
 | "microdiff"                   | 1784744 | 0.48     | 32.58           |
 | "microdiff-without-cyclesFix" | 1786782 | 0.31     | 32.51           |
-| "turbo-diff"                       | 2647332 | 0.37     | 0               |
+| "turbo-diff"                  | 2647332 | 0.37     | 0               |

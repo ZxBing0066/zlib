@@ -27,7 +27,7 @@ A tiny 📦 , fast 🚀 shuffle of javascript implement for array or string.
 -   🌕 Support array or string
 -   🕺🏻 Stable even distribution
 -   📦 Tiny and tree shaking support
--   🌎 Support web, Node and service worker with esm, cjs amd umd
+-   🌎 Support web, Node and worker with esm, cjs amd umd
 
 ## 🎬 Quick Start
 

@@ -30,7 +30,7 @@
 -   🛡 密码嫡超过 88 位，经过全面测试
 -   🎨 完全可定制化，无阅读障碍（无相似字符和连续的 -/\_）
 -   📦 轻量，支持 tree-shaking
--   🌎 提供 esm、cjs、umd，支持 web、Node、service worker
+-   🌎 提供 esm、cjs、umd，支持 web、Node、worker
 
 ## 🎬 快速上手
 

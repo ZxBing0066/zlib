@@ -38,3 +38,58 @@ test('simple diff', t => {
         }
     ]);
 });
+test('exception diff', t => {
+    t.deepEqual(diff(null, null), []);
+    t.deepEqual(diff(null, undefined), []);
+    t.deepEqual(diff(undefined, undefined), []);
+    t.deepEqual(diff(undefined, null), []);
+    t.deepEqual(diff({ a: null }, { b: undefined }), [
+        {
+            new: undefined,
+            path: ['b'],
+            type: 'ADD'
+        },
+        {
+            old: null,
+            path: ['a'],
+            type: 'REMOVE'
+        }
+    ]);
+    t.deepEqual(diff({ a: null }, { b: null }), [
+        {
+            new: null,
+            path: ['b'],
+            type: 'ADD'
+        },
+        {
+            old: null,
+            path: ['a'],
+            type: 'REMOVE'
+        }
+    ]);
+    t.deepEqual(diff({ a: null }, { a: null }), []);
+    t.deepEqual(diff({ a: undefined }, { a: null }), [{ new: null, old: undefined, path: ['a'], type: 'CHANGE' }]);
+    t.deepEqual(diff({ a: null }, null), [{ type: 'REMOVE', path: ['a'], old: null }]);
+    t.deepEqual(diff([], null), []);
+    t.deepEqual(diff([], undefined), []);
+    t.deepEqual(diff(null, []), []);
+    t.deepEqual(diff(undefined, []), []);
+});
+test('edge case', t => {
+    t.deepEqual(diff({ a: {} }, { a: [] }), [
+        {
+            new: [],
+            old: {},
+            path: ['a'],
+            type: 'CHANGE'
+        }
+    ]);
+    t.deepEqual(diff({ a: [] }, { a: {} }), [
+        {
+            new: {},
+            old: [],
+            path: ['a'],
+            type: 'CHANGE'
+        }
+    ]);
+});

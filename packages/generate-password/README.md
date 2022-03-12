@@ -30,7 +30,7 @@ Default run as chrome builtin password generator.
 -   🛡 Strong password have over 88 bits of entropy and fully tested
 -   🎨 Fully customizable and readability (no similar chars or sequences of -/\_)
 -   📦 Tiny and tree shaking support
--   🌎 Support web, Node and service worker with esm, cjs amd umd
+-   🌎 Support web, Node and worker with esm, cjs amd umd
 
 ## 🎬 Quick Start
 

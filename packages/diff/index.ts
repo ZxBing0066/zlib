@@ -6,7 +6,7 @@ interface Diff<T = any> {
 }
 
 const needDig = (obj: any) => {
-    if (typeof obj === 'object') {
+    if (obj !== null && typeof obj === 'object') {
         const cname = Object.getPrototypeOf(obj).constructor.name;
         if (cname === 'Object' || cname === 'Array') return cname;
     }
@@ -71,7 +71,7 @@ const diff = <T = any, TObj = Record<string, T> | T[]>(oldObj: TObj, newObj: TOb
         }
     };
 
-    _diff(oldObj, newObj, Array.isArray(oldObj));
+    _diff(oldObj == null ? ({} as TObj) : oldObj, newObj == null ? ({} as TObj) : newObj, Array.isArray(oldObj));
     return result;
 };
 
