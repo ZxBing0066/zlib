@@ -8,9 +8,9 @@
   "unpkg": "umd/index.min.js",
   "jsdelivr": "umd/index.min.js",
   "scripts": {
-    "test": "pnpx ava",
-    "test:coverage": "pnpx c8 ava",
-    "build": "pnpx tsc && pnpx rollup -c rollup.config.js",
+    "test": "ava",
+    "test:coverage": "c8 ava",
+    "build": "tsc && rollup -c rollup.config.js && rollup -c rollup.config.umd.js",
     "benchmark": "node benchmark.js"
   },
   "files": [

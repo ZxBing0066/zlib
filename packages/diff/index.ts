@@ -1,4 +1,4 @@
-interface Diff<T = any> {
+export interface Diff<T = any> {
     type: 'ADD' | 'REMOVE' | 'CHANGE';
     path: (string | number)[];
     old?: T;
@@ -27,7 +27,7 @@ const diff = <T = any, TObj = Record<string, T> | T[]>(oldObj: TObj, newObj: TOb
             }
         } else {
             for (const key in newObj) {
-                if (!(key in oldObj)) {
+                if (!(key in (oldObj as any))) {
                     result.push({
                         type: 'ADD',
                         path: [key],
@@ -41,7 +41,7 @@ const diff = <T = any, TObj = Record<string, T> | T[]>(oldObj: TObj, newObj: TOb
             isArray && ((key as string | number) = +key);
             const oldV = oldObj[key];
             const path = [key];
-            if (!(key in newObj)) {
+            if (!(key in (newObj as any))) {
                 result.push({
                     type: 'REMOVE',
                     path,

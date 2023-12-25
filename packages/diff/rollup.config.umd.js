@@ -4,21 +4,11 @@ import terser from '@rollup/plugin-terser';
 
 const cwd = process.cwd();
 const resolvePath = _path => path.resolve(cwd, _path);
+const name = 'turboDiff';
 
-export default name => ({
-    input: resolvePath('./index.ts'),
+export default {
+    input: resolvePath('./umd.ts'),
     output: [
-        {
-            file: 'cjs/index.cjs',
-            format: 'cjs',
-            exports: 'default',
-            sourcemap: true
-        },
-        {
-            file: 'esm/index.js',
-            format: 'es',
-            sourcemap: true
-        },
         {
             file: 'umd/index.js',
             format: 'umd',
@@ -36,4 +26,4 @@ export default name => ({
         file: resolvePath(output.file)
     })),
     plugins: [tsPlugin()]
-});
+};
